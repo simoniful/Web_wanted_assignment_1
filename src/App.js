@@ -1,5 +1,14 @@
-function App() {
-  return <div></div>;
+import React from 'react';
+import styled from 'styled-components';
+
+export default function App() {
+  return (
+    <CardListWrap>
+      <CommentCardList></CommentCardList>
+    </CardListWrap>
+  );
 }
 
-export default App;
+const CardListWrap = styled.div``;
+
+const CommentCardList = styled.ul``;
