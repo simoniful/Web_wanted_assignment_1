@@ -1,4 +1,5 @@
 import { getToken } from './storage';
+// fetch 함수 정의, 차후 axios 사용 개선 필요
 
 export const fetchPost = (api, obj) => {
   const token = getToken();
