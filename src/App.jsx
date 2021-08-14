@@ -34,7 +34,7 @@ export default function App() {
           <CommentCard key={idx} comment={comment} />
         ))}
       </CommentCardList>
-      {!isLast && <div ref={target}>Loading</div>}
+      {!isLast && <Observer ref={target}>Loading</Observer>}
     </div>
   );
 }
@@ -43,4 +43,12 @@ const CommentCardList = styled.ul`
   margin: 30px auto;
   width: 500px;
   background-color: #ffffff;
+`;
+
+const Observer = styled.div`
+  margin: 30px auto;
+  width: 500px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 `;

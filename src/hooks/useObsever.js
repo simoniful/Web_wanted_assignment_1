@@ -5,8 +5,8 @@ export const useObserver = (target) => {
 
   useEffect(() => {
     const options = {
-      rootMargin: '0px',
-      threshold: 1.0,
+      rootMargin: '200px',
+      threshold: 0.05,
     };
     const observer = new IntersectionObserver((entries) => {
       setIsIntersect(entries[0].isIntersecting);
