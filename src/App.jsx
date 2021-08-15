@@ -17,11 +17,11 @@ export default function App() {
       if (data.length === 0) {
         setIsLast(true);
       } else {
-        setCommentList([...commentList, ...data]);
+        setCommentList((commentList) => [...commentList, ...data]);
         setPage((prev) => prev + 1);
       }
     }
-  }, [commentList, page, isIntersect]);
+  }, [page, isIntersect]);
 
   useEffect(() => {
     getAdditionalData();
