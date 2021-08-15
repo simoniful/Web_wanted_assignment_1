@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { getData } from './api/getData.js';
 import { useObserver } from './hooks/useObsever.js';
@@ -11,7 +11,7 @@ export default function App() {
   const target = useRef(null);
   const isIntersect = useObserver(target);
 
-  const getAdditionalData = async () => {
+  const getAdditionalData = useCallback(async () => {
     if (isIntersect) {
       const data = await getData(page);
       if (data.length === 0) {
@@ -21,11 +21,11 @@ export default function App() {
         setPage((prev) => prev + 1);
       }
     }
-  };
+  }, [commentList, page, isIntersect]);
 
   useEffect(() => {
     getAdditionalData();
-  }, [isIntersect, isLast]);
+  }, [getAdditionalData, isIntersect, isLast]);
 
   return (
     <div>
